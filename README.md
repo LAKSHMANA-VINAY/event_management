@@ -43,7 +43,7 @@
   
      Intially to add data in the database make call of http://localhost:5000/events/add.
   
-     And at line 66 in app.py you have to keep the file path of the .csv file.
+     And at line 66 in app.py you have to keep the your file path of the .csv file.
 
 8) Working Demo: https://drive.google.com/file/d/1N_RvpX6fka7vUajr9l4WVR_ZZrQJ7zG5/view?usp=sharing
   
