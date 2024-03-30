@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #076593;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #1781b7;
+        }
+        .box {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .event {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .event h2 {
+            margin-top: 0;
+        }
+        .event p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fetch Events</h1>
+        <form action="/events/fetch" method="POST">
+            <div class="form-group">
+                <label for="page">Page Number:</label>
+                <input type="number" id="page" name="page" min="1" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Fetch">
+            </div>
+        </form>
+    </div>
+    <div class="box">
+        <h1>Events</h1>
+        <div>
+            <p>Total Events: {{ data.totalEvents }}</p>
+            <p>Total Pages: {{ data.totalPages }}</p>
+            <p>Current Page: {{ data.page }}</p>
+        </div>
+        <div class="events">
+            {% for event in data.events %}
+                <div class="event">
+                    <h2>{{ event.event_name }}</h2>
+                    <p>City: {{ event.city_name }}</p>
+                    <p>Date: {{ event.date }}</p>
+                    <p>Weather: {{ event.weather }}</p>
+                    <p>Distance: {{ event.distance_km }} km</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
