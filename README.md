@@ -39,7 +39,7 @@
 
      Once the application is running, users can access it using the provided URL.
   
-     Provide any necessary instructions for users to interact with your application, such as filling out forms,or accessing specific endpoints.
+     Users can interact with the application, by filling out forms,or accessing specific endpoints.
   
      Intially to add data in the database make call of http://localhost:5000/events/add.
   
